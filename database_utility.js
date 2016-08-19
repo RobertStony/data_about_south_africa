@@ -19,9 +19,11 @@ DatabaseUtility.prototype.deleteDatabase = function (callback) {
 DatabaseUtility.prototype.createDatabase = function (callback) {
   var sqlStatement = 'CREATE TABLE IF NOT EXISTS data ('
 
-  Object.keys(model).map(function (key, index) {
-    sqlStatement += key + ' ' + model[key] + ', '
-  })
+  var keys = Object.keys(model)
+  for (var key in keys) {
+    console.log(keys)
+    sqlStatement += keys[key] + ' ' + model[keys[key]] + ', '
+  }
 
   sqlStatement = sqlStatement.substring(0, sqlStatement.length - 2) + ')'
 
@@ -41,9 +43,10 @@ DatabaseUtility.prototype.insertRow = function (databaseObject) {
 
   delete databaseObject['id']
 
-  Object.keys(model).forEach(function (key) {
-    rowObject.push(replaceMissingValuesWithNull(key, databaseObject))
-  })
+  var keys = Object.keys(model)
+  for (var key in keys) {
+    rowObject.push(replaceMissingValuesWithNull(keys[key], databaseObject))
+  }
 
   statement.run(rowObject)
   statement.finalize()
@@ -64,9 +67,9 @@ DatabaseUtility.prototype.serialize = function (callback) {
 function createInsertStatement () {
   var sqlStatement = 'INSERT INTO data VALUES ('
 
-  Object.keys(model).forEach(function (key, index) {
+  for (var key in Object.keys(model)) {
     sqlStatement += '?, '
-  })
+  }
 
   return sqlStatement.substring(0, sqlStatement.length - 2) + ');'
 }

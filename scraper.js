@@ -60,7 +60,7 @@ function runScrapers () {
 }
 
 function runGraduates () {
-  graduates.run(db)
+  // graduates.run(db)
 }
 
 function runEntityResolution () {
