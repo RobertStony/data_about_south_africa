@@ -349,6 +349,10 @@ function run (db) {
 
   function replaceMatches (updateEntities) {
     db.readRows(function (err, rows) {
+      if (err) {
+        console.log(err)
+        return
+      }
       var data = rows.reduce(function (newData, element) {
         newData[element.id] = element
         return newData
@@ -385,7 +389,7 @@ function run (db) {
           run(db)
         }
       } catch (ex) {
-        console.log(ex, data[firstEntityId], data[secondEntityId])
+        console.log(ex)
       }
     })
   }
