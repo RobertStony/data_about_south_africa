@@ -21,7 +21,6 @@ DatabaseUtility.prototype.createDatabase = function (callback) {
 
   var keys = Object.keys(model)
   for (var key in keys) {
-    console.log(keys)
     sqlStatement += keys[key] + ' ' + model[keys[key]] + ', '
   }
 
