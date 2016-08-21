@@ -28,7 +28,7 @@ function run (db, callbackScraper) {
         callback()
       }
       console.log('Overpass - Fetching page: ' + queryQueue[query])
-      fetchPage('http://overpass-api.de/api/interpreter', query, queryQueue[query], prepareRawData, signalingEndOfProcessing)
+      fetchPage('http://api.openstreetmap.fr/oapi/interpreter', query, queryQueue[query], prepareRawData, signalingEndOfProcessing)
     }, function (error) {
       console.log('Overpass - Ghana scraper has finished.')
       if (error) {
