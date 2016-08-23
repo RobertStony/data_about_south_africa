@@ -4,7 +4,7 @@ var replaceall = require('replaceall')
 var async = require('async')
 var dataconverter = require('./data_converter.js')
 
-var timeoutInSec = 60
+var timeoutInSec = 120
 var countries = ['South Africa']
 
 var queryAttributes = {

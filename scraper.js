@@ -51,8 +51,6 @@ var db = new DatabaseUtility(model, 'data.sqlite')
 
 db.deleteDatabase(prepareDatabase)
 
-prepareDatabase()
-
 function prepareDatabase () {
   db.createDatabase(runScrapers)
 }
