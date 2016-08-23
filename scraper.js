@@ -49,7 +49,7 @@ var model = {
 
 var db = new DatabaseUtility(model, 'data.sqlite')
 
-// db.deleteDatabase(prepareDatabase)
+db.deleteDatabase(prepareDatabase)
 
 prepareDatabase()
 
@@ -62,7 +62,7 @@ function runScrapers () {
 }
 
 function runGraduates () {
-  // graduates.run(db)
+  graduates.run(db)
 }
 
 function runEntityResolution () {
